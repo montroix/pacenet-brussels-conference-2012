@@ -1,0 +1,5 @@
+.faceted_ajax_search_indicator {
+  height: 14px;
+  background-position: left top;
+  background: transparent url(../../../../../misc/throbber.gif) no-repeat 0 -20px;
+}

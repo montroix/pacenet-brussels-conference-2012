@@ -1,0 +1,85 @@
+/* Yes, we all hate IE7 too */
+
+/** Drupal admin tables **/
+
+#content tr.even th,
+#content tr.even td,
+#content tr.odd th,
+#content tr.odd td {
+  border-bottom: 1px solid #ccc; /* IE doesn't display borders on table rows */
+}
+
+/* Minor fix for primary and secondary tabs in IE */
+
+ul.primary li a:hover {
+	cursor:pointer;
+	color:#555;
+	text-decoration:none;
+}
+ul.secondary li a:hover{
+	cursor:pointer;
+	color:#555;
+	text-decoration:none;
+}
+
+#block-menu-primary-links li{
+	list-style: none;
+	list-style-type: none;
+	list-style-image: none;
+}
+
+#block-search-0 #edit-submit, #block-search-0 #edit-submit-1 {
+background: none;
+border: 1px solid #ABABAB;
+cursor: pointer;
+height: 28px;
+margin: 0px 0px 0px 6px;
+overflow: hidden;
+padding: 0px;
+text-indent: -3000px!important;
+width: 50px; 
+}
+
+
+#block-search-0 #edit-search-block-form-1 {
+border: 1px solid #ABABAB;
+color: #646464;
+height: 26px;
+margin: 0px;
+outline: none;
+padding: 0px 4px;
+width: 197px;
+}
+#block-simplenews-19 {height:130px;}
+#block-simplenews-19 #edit-submit-1, #block-simplenews-19 #edit-submit-2{
+	padding:7px 15px;
+	background-image:url(/sites/all/themes/brussel_conference/css/images/envoyez.png);
+	background-repeat:no-repeat;
+	display:block;
+	text-indent:-9999999px;
+	padding-left:10px;
+	cursor:pointer;
+	width:40px;
+	height:30px;
+	float:right;
+	font-size: 0px; 
+	color: #ffffff;
+}
+	#block-simplenews-19 #edit-mail{
+	height:16px;
+
+
+}
+
+#block-menu-menu-brussels{
+	margin-left:-40px;
+	width:190px;
+	padding:0px;
+	margin-top:30px;
+	
+}
+.two-sidebars .center{margin-left:5px!important;} 
+.views-field-field-logo-organise3-fid{padding-bottom:10px;}
+.view-presentation .views-field-view-node-1{
+	margin-bottom:5px;
+}

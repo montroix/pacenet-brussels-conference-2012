@@ -1,0 +1,2026 @@
+/** Layout
+---------------------------------
+*  Using a negative margin technique, adapted from ZEN. The page is loaded by this order:
+*  
+*  1. Header
+*  2. Content
+*  3. Navigation menus
+*  4. Sidebar Left
+*  5. Sideabr Right
+*	
+*/
+
+
+body {
+    font-family: helvetica,arial,sans-serif;
+    font-weight: 100;
+    line-height:normal;
+    margin: 0;
+    padding: 0;
+    height:100%;
+    color: #646464;
+    }
+    
+
+.node-inner h2 {
+	font-size: 16px;
+	font-weight: bold;
+	color: #4d729f;
+}
+
+.node-inner h3 {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+
+#page {
+	width: 100%; /* edit to change the width of the page */
+	margin: 0; /* remove 'auto' and the width to switch to a fluid width */
+}
+
+#main {
+	width: 900px; /* edit to change the width of the page */
+	margin: 0 auto; /* remove 'auto' and the width to switch to a fluid width */
+	padding: 0 0 70px 0;
+}
+.node-type-conference-delegates #main {
+	width: 900px; /* edit to change the width of the page */
+	margin: 0 auto; /* remove 'auto' and the width to switch to a fluid width */
+	padding: 0 0 70px 0;
+	min-height:600px;
+}
+#main-inner {
+	margin-left: -12px;
+}
+
+#content-inner {
+	width: 445px;
+}
+#content-inner-page{padding: 40px 0 0 0;margin-right:0!important;}
+.section-news #content-inner .feed-icon,
+.section-events #content-inner .feed-icon {
+	float: right;
+}
+
+
+ul	{
+	margin:0;
+	padding: 0;
+}
+
+li	{
+	margin:0;
+}
+
+
+a {
+	color: #345E91;
+}
+
+a:hover {
+	color: #4d729f;
+}
+
+
+.feed-icon {
+text-align: right;
+}
+
+.feed-icon img {
+	width: 24px;
+	height: 24px;
+}
+
+.logged-in #block-menu-primary-links ul li.join_the__key_stakeholder_panel {
+	display: none;
+}
+
+.content a, .pane-content a {
+	color: #345E91;
+	font-size: 16px;
+	text-decoration: none;
+}
+
+.content a:hover, .pane-content a:hover {
+	color:#4d729f;
+}
+
+
+.content ul{
+	
+}
+
+.content ul li {
+	padding: 0 15px 0px 0;
+	margin: 0 0 10px 0;
+}
+
+#content-header .messages.error *,
+#content-header .messages *,
+#content-header.error *,
+#content-header .messages.error,
+#content-header .messages,
+#content-header.error {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#content-header .messages.error,
+#content-header .error{
+	background-color: #FFF200;
+	border:none;
+	color: #4D729F;
+	margin:  10px 0 10px 0;
+	padding: 10px;
+	font-weight: bold;
+}
+
+#content-header .messages.error li,
+#content-header .error li {
+	padding: 5px;
+}
+
+ .not-logged-in .messages.error,
+ #content-area .meta {}
+
+/** LAYOUT RULES
+---------------------------------
+*  do not change if you're not sure you know what you're doing
+*/
+
+#content {
+  float: left;
+  padding: 0;
+}
+.sidebar {
+  float: left;
+}
+#sidebar-second {
+  float: right;
+}
+
+/* Layout Helpers */
+
+#header, #footer, .mission, .breadcrumb, .node {
+  clear: both;
+}
+
+/* breadcrumb */
+
+.breadcrumb {
+  clear: both;
+  color: #4D729F;
+  padding-top:34px;
+}
+
+.breadcrumb a {
+	color: #4D729F;
+	text-decoration: none;
+	font-size: 14px;
+}
+
+.breadcrumb a:last-child {
+	font-weight: bold;
+}
+
+/* Flux rss */
+
+div.feed-icon {
+	clear: both;
+}
+
+a.feed-icon img {
+	display: none;
+}
+
+a.feed-icon {
+	display: block;
+	height: 24px;
+	width:24px;
+	float: right;
+	background: transparent url(images/rss-blue.png) left top no-repeat;/* Flux rss-yellow.png in  second sidebar blocks*/
+}
+
+.block-right a.feed-icon {
+	background: transparent url(images/rss-yellow.png) left top no-repeat;/* Flux rss-yellow.png in  second sidebar blocks*/
+}
+#header-region-droite a.feed-icon {
+	background: transparent url(images/rss-yellow.png) left top no-repeat;/* Flux rss-yellow.png in  second sidebar blocks*/
+}
+
+/** Sidebars width
+---------------------------------
+*  Changing the width of the sidebars is dead easy, just change the
+*  values below corresponding to the sidebar you want to modify.
+*  Make sure you keep negative values as negative values.
+*  For example, if I want to increase the width of the left sidebar
+*  to 300px, I would have to change each '190' to '300'.
+*/
+
+.two-sidebars .center,
+.sidebar-left .center {
+  margin-left:7px;/* LEFT value */
+}
+#sidebar-first {
+  width: 200px;           /* LEFT value */
+	float:left;/* negative LEFT value */
+}
+.two-sidebars .center,
+.sidebar-right .center {
+    /* RIGHT value */
+}
+.two-sidebars .center,
+.sidebar-right .center {
+  margin-right: 0;    /* RIGHT value */
+}
+#sidebar-second {
+  width: 220px;           /* RIGHT value */
+}
+
+/** Columns inner
+---------------------------------
+*  You can change the padding inside the columns without changing the
+*  width of them by just usinbg the INNER div of each column
+*/
+
+.inner {
+	padding: 0px;
+}
+
+/** Navigation styles
+---------------------------------
+*  The navigation is loaded after the content, so we need to make space
+*  for it, equal to its height, so if you change the height of the navigation,
+*  remember to adapt the margin top of the content and sidebars.
+*/
+
+#navigation {
+  float: left;
+  margin-left: 0;
+  margin-right: -100%;
+  padding: 0;
+  width: 100%;
+}
+.with-navigation #content,
+.with-navigation .sidebar {
+  margin-top: 40px;        /* Navigation Height */
+}
+#navigation {
+  height: 40px;            /* Navigation Height */
+}
+
+
+
+/** PACENET
+------------------------------------------------------------------------------------------------------------------------------------
+*  Custom pacenet css code
+* 
+*/
+
+
+/** SUP-HEADER
+------------------------------------------------------------------
+* 
+*/
+#sup-header {
+	margin:0;
+	padding: 20px 0 0 0;
+	width: 100%;
+	background: #fff url(images/frise.jpg) repeat-x left bottom;
+	height:145px;
+}
+
+#sup-header-inner {
+	width: 940px;
+	margin: 0 auto;
+	padding: 0;
+}
+
+/** logo block in header **/
+ 
+#block-block-1 * {
+	margin:0;
+	padding: 0;
+}
+
+#block-block-1 {
+	margin:10px 0 0 -10px;
+	padding: 0;
+	width: 230px;
+	height: 84px;
+	float: left;
+}
+
+
+/** search in sup-header **/
+
+#block-search-0, #block-search-0 .content * {
+	margin:0;
+	padding: 0;
+	color: #646464;
+}
+
+
+#block-search-0 {
+	width: 270px;
+	margin-right:6px;
+	padding: 80px 0 0 0;
+	float: right;
+	background:  url(images/logo-haut.png) top center no-repeat;
+}
+
+#block-search-0 h3.block-title {
+	border-top: 1px solid #ababab;
+	width: 270px;
+	margin:0;
+	padding: 5px 0 10px 0;
+	font-size: 14px;
+}
+
+
+#block-search-0 #edit-search-block-form-1-wrapper label {
+	display: none;
+}
+
+#block-search-0 #edit-search-block-form-1 {
+	border: 1px solid #ababab;
+	height: 26px;
+	margin: 0;
+	padding: 0 4px;
+	width: 220px;
+	outline: none;
+	color: #646464;
+}
+
+#block-search-0 .form-submit {
+	height: 28px;
+	width: 28px;
+	border: 1px solid #ababab;
+	background: #fff url(images/search-btn.png) center center no-repeat;
+	text-indent: -3000px;
+	overflow: hidden;
+	cursor: pointer;
+	margin: 0 0 0 6px;
+	padding: 0;
+}
+
+/** HEADER
+------------------------------------------------------------------
+* 
+*/
+
+#header {
+	width: 100%;
+	height: 262px;
+	background-color: #0b428a;
+	margin: 0;
+	padding: 0;
+	clear: both;
+}
+
+#header-inner {
+	margin: 0 auto;
+	width: 980px;
+	background-color: #0b428a;
+	height: 262px;
+	padding: 0;
+}
+
+
+/** User login block **/
+
+#block-user-0,
+#block-menu-menu-menu-user-right {
+	width: 270px;
+	margin: 0;
+	padding: 0;
+	z-index: 99;
+	background-color: #3F83DE;
+}
+#block-multiblock-1,#block-multiblock-2{
+	width: 270px;
+	margin: 0;
+	padding: 0;
+	z-index: 99;
+	background-color: #2E70C7;
+}
+#block-multiblock-1 .block-inner, #block-user-0 .block-inner,
+#block-menu-menu-menu-user-right .block-inner, #block-multiblock-2 .block-inner {
+	width: 245px;
+	margin: 0 0 0 25px;
+	padding:0;
+}
+
+#block-multiblock-1 .block-inner *, #block-user-0 .block-inner * {
+	margin: 0;
+	padding: 0;
+}
+
+#block-menu-menu-menu-user-right .block-inner ,#block-multiblock-2 .block-inner {
+	padding: 15px 5px 0 35px;
+	margin: 0;
+}
+#block-multiblock-1 .block-title,
+#block-user-0 h3.block-title ,
+#block-multiblock-2 .block-title 
+{
+	color: #fff200;
+	letter-spacing: 1px;
+	font-size: 16px;
+	font-weight: 100;
+	padding: 0 0 3px 0;
+}
+
+#block-menu-menu-menu-user-right h3.block-title,
+#block-block-10  h3.block-title ,
+#block-multiblock-2  h3.block-title 
+{
+	color: #fff200;
+	font-size: 1.4em;
+	font-weight: bold;
+	padding: 0 0 3px 0;
+}
+
+#block-block-10  h3.block-title {
+	color: #fff200;
+	font-size: 1.4em;
+	font-weight: bold;
+	margin:0;
+	padding: 0 0 3px 0;
+}
+#block-multiblock-1 #user-login-form ,
+#block-user-0 #user-login-form {
+	text-align: left;
+	margin: 0;
+	padding: 0;
+}
+#block-multiblock-1 #user-login-form ,
+#block-user-0 #user-login-form {
+	margin: 0;
+	padding: 0;
+}
+#block-multiblock-1 #user-login-form .form-submit,
+#block-user-0 #user-login-form .form-submit {
+	width: 90px;
+	height: 30px;
+	margin-top: 15px;
+	text-indent: -3000px;
+	overflow: hidden;
+	border:none;
+	background: #0b428a url(images/login-btn.png) left top no-repeat;
+	cursor: pointer;
+}
+
+#block-menu-menu-menu-user-right .block-inner *,
+#block-multiblock-2 .block-inner *
+ {
+	margin: 0;
+	padding: 0;
+	list-style: none!important;
+	list-style-type: none!important;
+}
+#block-multiblock-1 #user-login-form .item-list ul,
+#block-user-0 #user-login-form .item-list ul {
+	margin: 15px 0 0 0;
+	padding: 0;
+}
+#block-multiblock-1 #user-login-form .form-item,
+#block-user-0 #user-login-form .form-item {
+	width: 210px;
+}
+#block-multiblock-1 #user-login-form label,
+#block-user-0 #user-login-form label {
+	color: #ffffff;
+	font-size: 12px;
+	font-weight: 100;
+	padding : 5px 0 3px 0;
+}
+
+#block-multiblock-1 #user-login-form .form-item input,
+#block-user-0 #user-login-form .form-item input {
+	width: 202px;
+	border: 1px solid #2e70c7;
+	padding: 4px;
+	background-color: #0b428a;
+	color: #FFF;
+}
+
+#block-multiblock-1 #user-login-form .item-list ul li,
+#block-user-0 #user-login-form .item-list ul li
+  {
+	margin: 0 0 8px 0;
+	padding: 0;
+	list-style: none;
+	list-style-type: none;
+	font-size: 11px;
+	width: 140px;
+}
+
+#block-menu-menu-menu-user-right .content ul.menu li ,
+#block-multiblock-2 .content ul.menu li 
+{
+	margin: 0;
+	padding: 3px 0 3px 22px;
+	list-style: none;
+	list-style-type: none;
+	font-size: 13px;
+}
+
+
+#block-menu-menu-menu-user-right .content ul.menu li.profil, #block-multiblock-2 .content ul.menu li.profil {
+	background: transparent url(images/profil2-user-icon.png) left 2px no-repeat;
+}
+
+#block-menu-menu-menu-user-right .content ul.menu li.my_messages ,#block-multiblock-2 .content ul.menu li.my_messages{
+	background: transparent url(images/mails-user-icon.png) left 2px no-repeat;
+}
+
+#block-menu-menu-menu-user-right .content ul.menu li.write_new_message ,#block-multiblock-2 .content ul.menu li.write_new_message {
+	background: transparent url(images/newmail-user-icon.png) left 2px no-repeat;
+}
+
+#block-menu-menu-menu-user-right .content ul.menu li.discussions ,#block-multiblock-2 .content ul.menu li.discussions {
+	background: transparent url(images/discussions-user-icon.png) left 1px no-repeat;
+}
+
+#block-menu-menu-menu-user-right .content ul.menu li.create_event ,#block-multiblock-2 .content ul.menu li.create_event{
+	background: transparent url(images/calendar-user-icon.png) left 2px no-repeat;
+}
+
+#block-menu-menu-menu-user-right .content ul.menu li.create_news ,#block-multiblock-2 .content ul.menu li.create_news{
+	background: transparent url(images/news-user-icon.png) left 2px no-repeat;
+}
+
+#block-menu-menu-menu-user-right .content ul.menu li.address-book ,#block-multiblock-2 .content ul.menu li.address-book{
+	background: transparent url(images/adresses-user-icon.png) left 2px no-repeat;
+}
+
+#block-menu-menu-menu-user-right .content ul.menu li.logout ,#block-multiblock-2 .content ul.menu li.logout{
+	background: transparent url(images/logout-user-icon.png) left 2px no-repeat;
+}
+
+#block-multiblock-1 #user-login-form .item-list ul li a,
+#block-user-0 #user-login-form .item-list ul li a {
+	color:#FFF!important;
+	text-decoration:none;
+	font-size: 12px;
+	font-weight: 100;
+}
+
+#block-menu-menu-menu-user-right ul li a ,#block-multiblock-2 ul li a{
+	font-size: 13px;
+	line-height: 18px;
+	font-weight: 100;
+	text-decoration: none;
+	color:#FFF!important;
+}
+
+
+#block-multiblock-1 #user-login-form .item-list ul li a:hover,
+#block-user-0 #user-login-form .item-list ul li a:hover {
+	text-decoration:underline;
+}
+
+#content-header ul.tabs {
+	width: 460px!important;
+	white-space: normal;
+	border: none;
+}
+
+#content-header ul.tabs li {
+	padding: 0px;
+	margin: 0 0 0 0;
+}
+
+#content-header ul.tabs li a {
+	padding: 5px;
+	margin: 0 0 5px 0;
+	display: inline-block;
+	color: #525252;
+}
+
+#content-header ul.tabs li.active a {
+	padding: 5px;
+	margin: 0 0 5px 0;
+	display: inline-block;
+	color: #525252;
+	font-weight: bold;
+}
+
+
+
+/** LEFT SIDEBAR
+------------------------------------------------------------------
+* 
+*/
+
+#block-menu-menu-brussels * {
+ 	margin: 0;
+  	padding:0;
+  	list-style: none;
+  	list-style-type: none;
+}
+
+#block-menu-menu-brussels {
+	width: 190px;
+  	padding:0;
+	margin-top:30px;
+	margin-left:-29px;
+}
+
+#block-menu-menu-brussels .block-title {
+	color: #1854a3;
+	font-size:#1854a3;
+	font-size: 18px;
+	font-weight: 18px;
+	padding: 0 0 0 25px;
+	background: #fff url(images/puce-nav.png) left 3px no-repeat;
+}
+
+#block-menu-menu-brussels ul:first-child{
+
+}
+#block-menu-menu-brussels  li.expanded.active-trail{
+	background-color:#FFFFFF;
+}
+#block-menu-menu-brussels  li.expanded.active-trail .active{
+	background-color:#2E70C7;
+	width:185px;
+	padding:5px;
+}
+#block-menu-menu-brussels  li.expanded.active-trail a{
+	background-color:#2E70C7;
+	width:200px;
+	padding:5px;
+
+}
+#block-menu-menu-brussels ul li{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-right:20px;
+	list-style:none;
+	background-color:#2E70C7;
+	padding:5px;
+	width:200px;
+	
+}
+#block-menu-menu-brussels ul  .expanded{
+	color:#2E70C7!important;
+	padding-left:0;
+	padding-right:10px;
+	 
+}
+
+#block-menu-menu-brussels ul  .expanded ul.menu{
+	padding-top:5px;
+	list-style-image: none!important;
+	display:none;
+}
+#block-menu-menu-brussels ul  .expanded ul.menu a{
+	color:#2E70C7!important;
+	height:35px;
+	padding-top:5px;
+	
+}
+#block-menu-menu-brussels ul  .expanded ul.menu li.last a{
+	color:#2E70C7!important;
+	height:40px;
+	
+}
+#block-menu-menu-brussels ul  .expanded a{
+	color:white!important;
+	display:block;
+	padding-left:5px;
+}
+#block-menu-menu-brussels ul  .expanded .leaf{
+	color:#ffffff!important;
+	background-color:transparent!important;
+	margin:0!important;
+	padding:0!important;
+	border-bottom:solid 1px #dfdfdf;	
+	list-style-image: none!important;
+
+} 
+#block-menu-menu-brussels ul  .expanded .leaf a{
+	color:#ffffff!important;
+	background-color:transparent!important;	
+}
+#block-menu-menu-brussels ul li a{
+	font-size: 13px;
+	color:#ffffff;
+	font-weight:bold;
+}
+
+#block-menu-menu-brussels ul li ul li {
+	margin-left: 15px;
+} 
+
+#block-menu-menu-brussels ul li ul li a{
+	font-size: 13px;
+}
+
+#block-menu-menu-brussels ul li ul li ul li {
+	margin-left: 0px;
+	padding: 0 0 0 5px;
+}
+
+#block-menu-menu-brussels ul li ul li ul li a {
+	padding: 0 0 0 10px;
+	font-size: 12px;
+}
+
+#block-menu-menu-brusselss ul li a {
+	color:white;
+	font-weight: 700;
+	font-size: 12px;
+	text-decoration: none;
+}
+
+#block-menu-menu-brussels ul li a:hover {
+	
+}
+
+.section-events #block-menu-primary-links li.events a,
+.section-news #block-menu-primary-links li.news a {
+	color: #353535;
+	padding-left: 10px;
+	background: #fff url(images/arrow-menu.png) left 2px no-repeat;
+}
+
+#block-menu-menu-brussels .leaf a.active
+{
+	padding-left: 20px!important;
+	background-position: 5px 3px!important;
+	background:  url(images/menu-droite.png) left 2px no-repeat;
+}
+#block-menu-menu-brussels .expanded a.active
+{
+	padding-left: 20px!important;
+	background-position: 5px 8px!important;
+	background:  url(images/menu-droite.png) left 2px no-repeat;
+	list-style-image: none!important;
+}
+#block-menu-menu-brussels ul .expanded .leaf a.active
+{
+	padding-left: 20px!important;
+	background-position: 5px 8px!important;
+	background:  url(images/menu-droite2.png) left 2px no-repeat;
+}
+#block-menu-menu-brussels ul li .expanded .leaf a:hover
+{
+
+	background: #fff url(images/menu-droite2.png) left 2px no-repeat;
+}
+/** RIGHT SIDEBAR
+------------------------------------------------------------------
+* 
+*/
+
+/** Events and news block in second side-bar **/
+
+ #block-views-vue_events_news-block_1 .content *,
+ #block-views-vue_events_news-block_2 .content *,
+ #block-views-vue_events_news-block_1,
+ #block-views-vue_events_news-block_2,
+ #block-views-vue_events_news-block_1 h3.title,
+ #block-views-vue_events_news-block_2 h3.title,
+ #block-simplenews-19 h3.title {
+	margin: 0;
+	padding: 0;
+}
+
+ #block-views-vue_events_news-block_1
+{
+	background-color: #2e70c7;
+	padding-left:20px;
+	padding-right:20px;
+	margin-top:15px!important;
+}
+ #block-views-vue_events_news-block_2
+{
+	background-color: #2e70c7;
+	padding-left:20px;
+	padding-right:20px;
+	*margin-top:5px!important;
+}
+ #block-simplenews-19,
+ #block-block-7 {
+	background-color: #2e70c7;
+	padding-left:20px;
+	padding-right:20px;
+}
+
+#block-views-bloc_news_brussel-block_1 .view-header,
+#block-views-vue_events_news-block_2 h3.title {
+	color:#FFF200; 
+	font-weight:bold;
+	font-size:1.4em;
+
+}
+
+#block-views-bloc_news_brussel-block_1 .views-row,
+#block-views-bloc_news_brussel-block_1 .views-row {
+	border-top: 1px solid #91bef9;
+	border-bottom: none;
+	color: #fff;
+	padding-top:5px;
+	margin-top:5px;
+}
+
+#block-views-vue_events_news-block_2 .views-field-created {
+	color:#B3D3FF;
+	font-size: 15px;
+	padding-bottom: 3px;
+	font-weight: 100;
+	border: none;
+}
+.views-field-changed {
+
+	}
+																			
+
+#block-views-bloc_news_brussel-block_1 .field-content p,#block-views-bloc_news_brussel-block_1 .field-content span{
+	color: #ffffff!important;
+	text-decoration: none;
+	font-size: 13px;
+	font-weight: normal;
+}
+
+#block-views-vue_events_news-block_1 .view-footer,
+#block-views-vue_events_news-block_2 .view-footer {
+	color: #fff;
+
+}
+
+#block-views-bloc_news_brussel-block_1 .view-footer a {
+	color: #fff;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 13px;
+	display: block;
+	padding: 0 0 0 12px;
+	background: transparent url(images/arrow-all-x.png) left 4px no-repeat;
+	margin-top:5px;
+}
+
+
+/** Events block in second side-bar **/
+
+
+/** Print in second side-bar  **/
+
+#block-block-7 {
+	width: 265px;
+	background-color: #2E70C7;
+	padding: 15px 0 10px 5px;
+}
+
+#block-block-7 ul {
+	clear: both;
+}
+
+#block-block-7 ul li {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	float: left;
+}
+
+#block-block-7 .content ul li a {
+	color: #fff;
+	font-size: 11px;
+	text-transform: uppercase;
+	font-weight: 500;
+	display: block;
+	padding: 10px 0 10px 30px;
+	background: transparent url(images/print.png) left center no-repeat;
+}
+
+#block-block-7 .content li.sitemapird a {
+
+	background: transparent url(images/sitemap.png) left center no-repeat;
+}
+
+#block-block-7 .content li.sitemapird {
+	margin-left: 10px;
+	padding-left: 5px;
+	border-left: 1px dotted #fff;
+}
+
+
+/** News block in second side-bar **/
+
+ #block-views-vue_events_news-block_2 {
+	background-color: #2e70c7;
+	padding-bottom:10px;
+	margin:10px 0;
+}
+
+
+/** Newsletter block in second side-bar **/
+
+#block-simplenews-19 {
+	padding-bottom: 30px;
+	color: #fff;
+	background-color: #3F83DE;
+}
+
+#block-simplenews-19 h3.block-title {
+	padding-bottom: 5px;
+	color: #FFF200;
+	padding-top:10px;
+}
+
+#block-simplenews-19 #edit-mail, #edit-captcha-response {
+	width: 130px;
+	height:21px;
+	border: none;
+	padding: 5px;
+	margin-right:10px;
+}
+#edit-mail-wrapper{float:left;}
+#block-simplenews-19 .form-item{margin-top:0;}
+
+#block-simplenews-19 #edit-submit-1,#block-simplenews-19 #edit-submit-2  {
+	padding: 7px 15px;
+	border: none;
+	background: url(images/envoyez.png);
+	background-repeat:no-repeat;
+	display: block;
+	text-indent: -9999999px;
+	cursor:pointer;
+	background-color:#ffffff;
+	line-height:17px;
+} 
+
+#block-simplenews-19 .issues-link,
+#block-simplenews-19 .feed-icon {
+	display: none;
+}
+
+/** BLOCK-BLOCK- Manage USERS **/
+
+#block-block-10, #block-block-10 .content * {
+margin: 0;
+padding: 0;
+color: #fff;
+font-weight: 100;
+}
+
+#block-block-10 {
+background-color: #3F83DE;
+padding: 10px 0px 10px 15px;
+}
+
+#block-block-10 .content ul {
+margin: 0;
+padding: 0;
+list-style: none;
+}
+
+#block-block-10 .content ul li.manage-user {
+margin: 0;
+padding: 3px 0 3px 22px;
+font-size: 13px;
+background: transparent url(images/manage-user.png) left 2px no-repeat;
+}
+
+
+
+/** FOOTER
+------------------------------------------------------------------
+* 
+*/
+#footer_link {
+	float:right;
+}
+#footer {
+  float: none;
+  clear: both;
+  margin: 0 auto;
+  padding: 25px 0 0 0;
+  width: 940px;
+  background: #fff url(images/bg-footer.png) center top no-repeat;
+}
+
+
+/** logo block in header **/
+ 
+#block-block-2 * {
+	margin:0;
+	padding: 0;
+}
+
+#block-block-2 {
+	margin:0
+	padding: 0;
+	float: left;
+	min-height: 100px;
+	width: 200px;
+}
+
+#block-block-2 ul#useful-links {
+	margin-top: 10px;
+}
+
+#block-block-2 ul#useful-links li a {
+	color: #646464;
+	text-decoration: none;
+	font-size: 12px;
+}
+
+
+/** footer partenaires **/
+
+#block-block-3 * {
+	margin:0;
+	padding: 0;
+}
+
+.block-footer_block h3.block-title {
+	color: #1854a3;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+#block-block-3 .content ul li {
+	margin:0;
+	padding: 0;
+	float: left;
+}
+
+#block-block-3 .content ul li:first-child {
+	margin-left:0;
+}
+
+#block-block-3 .content ul li {
+	margin-left:8px;
+	color: #646464;
+
+}
+
+#block-block-3 .content ul li:last-child {
+	display: none;
+}
+
+#block-block-3 {
+	margin:0 0 0 0px;
+	padding: 0;
+	min-height: 100px;
+	overflow: hidden;
+}
+
+
+/** CONTENU - HOME
+------------------------------------------------------------------
+* 
+*/
+
+
+#content-header h1.title, #block-block-9 h1.title  {
+	color: #fff200;
+	padding: 20px 0 30px 20px;
+	margin: 0 0 15px 0;
+	background: #1854a3 url(images/bg-title-home.gif) left bottom no-repeat;
+}
+.view-header h1.title, 
+.view-reseach-and-innovation-policies .view-header h1,
+.view-Agriculture  .view-header h1,
+.view-Water .view-header  h1,
+.view-fisheries .view-header  h1,
+.view-naturals-hazards .view-header h1{
+	color: #fff200;
+	padding: 20px 0 30px 20px;
+	margin: 0 0 15px 0;
+	background: #1854a3 url(images/bg-title-home.gif) left bottom no-repeat;
+}
+h1.title  {
+	color: #fff200;
+	padding: 20px 0 30px 20px;
+	margin: 0 0 15px 0;
+	background: #1854a3 url(images/bg-title-home.gif) left bottom no-repeat;
+	margin-top:7px;
+}
+/** slideshow-ird sur la home **/
+
+#block-views-header_brussels-block_1 {
+    position:absolute;
+    height:262px;
+    width: 720px;
+    overflow: hidden;
+}
+ 
+
+#block-views-slideshowhome-block_1 .view-footer {
+    position:absolute;
+    z-index: 99;
+    padding: 0;
+    margin: 0;
+    bottom:0px;
+    left: 20px;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0px;
+}
+
+.view-welcomemessage{border-top: 1px solid #BFBFBF;}
+.view-welcomemessage .item-list li{margin:0!important;padding:0!important;}
+#block-views-slideshowhome-block_1 .view-footer p:first-letter {
+    letter-spacing: 3px;
+}
+
+
+/** 2 petits blocs sur la home page **/
+
+#pacenet-home-panel .pane-1,
+#pacenet-home-panel .pane-2,
+#pacenet-home-panel .panel-col-bottom {
+	margin: 0;
+	padding: 10px 0 0 0!important;
+	border-top:1px solid #BFBFBF;
+}
+
+h2.pane-title {
+	margin: 0 0 5px 0!important;
+	font-size: 13px!important;
+		font-weight: bold;
+	padding: 0!important;
+	color:#1854A3;
+	text-indent: 25px;
+	background: #fff url(images/puce-nav.png) left 3px no-repeat!important;
+	line-height: 25px;
+}
+
+
+/** Bloc de la map sur la home **/
+
+#block-views-home_map-block_1 .content * {
+	margin: 0;
+	padding: 0;
+}
+
+#block-views-home_map-block_1 {
+	border-top: 1px solid #bfbfbf;
+	border-bottom: 1px solid #bfbfbf;
+	margin: 15px 0 15px 0;
+	padding: 15px 0 15px 0;
+}
+
+.panel-col-bottom .pane-home-map h2.pane-title {
+	font-size: 18px!important;
+	font-weight: bold;
+	padding: 0 0 0 25px;
+	margin: 0;
+	background: #fff url(images/puce-nav.png) left 3px no-repeat!important;
+	line-height: 25px;
+}
+
+
+#block-views-home_map-block_1 .view-header {
+	padding: 10px 0;
+}
+
+.node-inner p {
+	font-size: 12px;
+	line-height: 16px;
+	font-weight: 100;
+}
+
+.node-inner p a {
+	color:#345E91;
+	font-weight: 700;
+}
+
+.gmap-popup .views-field-title {
+	width: 220px;
+	padding: 5px 0 10px 25px;
+	background: #fff url(images/puce-nav.png) no-repeat 0 5px!important;
+}
+
+.gmap-popup .views-field-title a {
+	text-decoration: none;
+	color: #0B428A;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.gmap-popup .views-field-title a:hover {
+	text-decoration: underline;
+}
+
+.gmap-popup .views-field-teaser p {
+	text-align:left!important;
+	font-size: 12px;
+}
+
+/** Formulaire pour rejoindre pacenet **/
+
+.node-type-webform .node-type-webform .form-item label,
+.node-type-webform .node-type-webform #edit-submitted-brief-biography-of-the-representative-professional-background-wrapper label {
+	background: #2E70C7;
+	padding: 5px;
+	width: 290px;
+	color: #FFF200;
+}
+
+.node-type-webform .node-type-webform label.option {
+	background: none;
+	padding: 5px;
+	width: 290px;
+	color: #2E70C7;
+}
+
+.node-type-webform .node-type-webform  .form-item
+
+.node-type-webform .node-type-webform input.form-text,
+.node-type-webform .node-type-webform .form-textarea  {
+	border: 1px solid #2E70C7;
+	padding: 5px;
+	color: #2E70C7;
+	width: 420px;
+}
+
+.node-type-webform .node-type-webform input.form-text,
+.node-type-webform .node-type-webform .form-textarea {
+	border: 1px solid #2E70C7;
+	padding: 5px;
+	color: #2E70C7;
+	width: 420px;
+	outline: none;
+}
+
+.node-type-webform .node-type-webform .form-actions input.form-submit {
+	border: 1px solid #2E70C7;
+	padding: 5px 15px;
+	background: #2E70C7;
+	color: #FFF200;
+	cursor: pointer;
+	font-weight: normal;
+	font-size: 20px;
+}
+
+/** CONTENU - FAQ **/
+
+/* CONTENU - PAGE FAQ
+------------------------------------------------------------------
+*/
+
+.view-display-id-page_1 .view-content * {
+	background: none;
+	border: none;
+	padding: 0;
+	margin: 0;
+}
+
+.view-display-id-page_1 {
+	width: 460px;
+	padding: 0;
+	margin: 0;
+	margin-top:7px;
+}
+
+.view-display-id-page_1 .view-content .views-accordion-item {
+	margin:0 0 15px 0;
+	padding-top: 15px;
+	border-top:1px dotted #E1E1E1;
+}
+
+.view-display-id-page_1 .view-content .accordion-item-first {
+	border-top:none;
+}
+
+.view-display-id-page_1 .view-content .views-field-title {
+	color: #888888;
+}
+
+.view-display-id-page_1 .view-content .views-field-title.accordion-header-active {
+	color: #646464;
+	font-size: 18px;
+	font-weight: bold,
+}
+
+.view-display-id-page_1 .view-content .views-field-body {
+	color: #646464;
+	font-size: 13px;
+	line-height: 17px;
+	font-weight: 100;
+	padding: 10px 0!important;
+	text-align: justify;
+}
+
+.view-display-id-page_1 .toggleAccordion{
+	color: #1175B6;
+	font-size: 14px;
+	line-height: 22px;
+	font-weight: 100;
+	padding: 10px 0!important;
+}
+
+.view-display-id-page_1 .toggleAccordion a {
+	color: #1175B6;
+	font-size: 14px;
+	line-height: 22px;
+	font-weight: 100;
+	padding: 10px 0!important;
+}
+
+
+/* CONTENU - PAGE PaceNet The project
+------------------------------------------------------------------
+*/
+
+#block-views-a8830b4786cefa36d6860239df5d158a,
+#block-views-partener_logo-block_1 {
+	margin: 0 0 0 -25px;
+	padding: 0;
+	clear: both;
+}
+
+#block-views-a8830b4786cefa36d6860239df5d158a .view-content,
+#block-views-a8830b4786cefa36d6860239df5d158a .view-content * {
+	margin: 0;
+	padding: 0;
+}
+
+#block-views-a8830b4786cefa36d6860239df5d158a .view-content .views-fluidgrid-item,
+#block-views-partener_logo-block_1 .view-content .views-fluidgrid-item {
+	width: 200px;
+	padding: 20px 5px 5px 0;
+	margin: 0 0 0 25px!important;
+	border-bottom: 1px solid #BFBFBF;
+}
+
+#block-views-a8830b4786cefa36d6860239df5d158a .view-content .views-field-title,
+#block-views-partener_logo-block_1 .view-content .views-field-title {
+	padding: 0 0 5px 0;
+}
+
+
+#block-views-a8830b4786cefa36d6860239df5d158a .view-content .views-field-title a
+#block-views-partener_logo-block_1 .view-content .views-field-title a, {
+	font-size: 14px;
+	font-weight: bold;
+	color:#1854A3;
+	text-indent: 25px;
+	text-decoration: none;
+}
+
+#block-views-a8830b4786cefa36d6860239df5d158a .view-content .views-field-view-node,
+#block-views-partener_logo-block_1 .view-content .views-field-view-node {
+	padding: 10px 0 0 0;
+	text-align: right;
+}
+
+#block-views-a8830b4786cefa36d6860239df5d158a .view-content .views-field-view-node a,
+#block-views-partener_logo-block_1 .view-content .views-field-view-node a {
+	font-size: 12px;
+	font-weight: 100;
+	color:#1854A3;
+	text-indent: 25px;
+	text-decoration: none;
+}
+
+#block-views-a8830b4786cefa36d6860239df5d158a .view-content .views-field-view-node a:hover,
+#block-views-partener_logo-block_1 .view-content .views-field-view-node a:hover {
+	font-size: 12px;
+	font-weight: 100;
+	color:#1854A3;
+	text-indent: 25px;
+}
+
+/* -- CONTENU - PAGE Consortium FluidGrid -- */
+
+#block-views-partener_logo-block_1 .views-field-field-logo-fid {
+	float: left;
+	width: 70px;
+	margin-right: 5px;
+}
+
+#block-views-partener_logo-block_1 .view-content .views-field-teaser {
+	line-height: 18px;
+	font-size: 12px;
+	text-align: justify;
+}
+
+
+/* CONTENU - PAGE WORKPACKAGE
+------------------------------------------------------------------
+*/
+
+.view-field-noderef-wptask {
+	margin: 0 0 0 -25px;
+	padding: 0;
+	clear: both;
+}
+
+.view-field-noderef-wptask .view-content,
+.view-field-noderef-wptask .view-content * {
+	margin: 0;
+	padding: 0;
+}
+
+.view-field-noderef-wptask .view-content .views-row {
+	width: 200px;
+	height: 120px;
+
+	padding: 20px 5px 5px 0;
+	margin: 0 0 0 25px!important;
+	float: left;
+}
+
+.view-field-noderef-wptask .view-content .views-field-title {
+	padding: 0 0 10px 0;
+}
+
+
+.view-field-noderef-wptask .view-content .views-field-title a {
+	font-size: 14px;
+	font-weight: bold;
+	color:#1854A3;
+	text-indent: 25px;
+	text-decoration: none;
+}
+
+.view-field-noderef-wptask .view-content .views-field-view-node {
+	padding: 10px 0 0 0;
+	text-align: right;
+}
+
+.view-field-noderef-wptask .view-content .views-field-view-node a {
+	font-size: 12px;
+	font-weight: 100;
+	color:#1854A3;
+	text-indent: 25px;
+	text-decoration: none;
+	border-bottom: 1px solid #BFBFBF;
+
+}
+
+.view-field-noderef-wptask .view-content .views-field-view-node a:hover {
+	font-size: 12px;
+	font-weight: 100;
+	color:#1854A3;
+	text-indent: 25px;
+}
+
+
+
+/* CONTENU - PAGE Pacenet Network
+------------------------------------------------------------------
+*/
+
+#pacenetnetwork.panel-display .panel-col-first,
+#pacenetnetwork.panel-display .pane-2 {
+border-top: 1px solid #BFBFBF;
+margin: 10px 0 0 0;
+padding: 10px 0px 0px !important;
+}
+
+#pacenetnetwork.panel-display .panel-col-first,
+#pacenetnetwork.panel-display .pane-2 {
+border-top: 1px solid #BFBFBF;
+margin: 10px 0 0 0;
+padding: 10px 0px 0px !important;
+}
+
+
+/* CONTENU - PAGE Pacenet News - Events
+------------------------------------------------------------------
+*/
+
+.view-vue-events-news {
+	margin: 0;
+	padding: 0;
+	clear: both;
+}
+
+.view-vue-events-news .view-content * {
+	margin: 0;
+	padding: 0;
+}
+.view-news-brussels .view-content .views-field-view-node {
+	padding: 0;
+	border-bottom: 1px solid #BFBFBF;
+	padding-bottom:10px;
+	margin-bottom:10px;
+}
+
+.view-vue-events-news .view-content {
+	margin: 30px 0 0 0;
+	padding: 0;
+}
+
+
+.view-vue-events-news .view-content .views-row {
+	margin: 0 15px 15px 15px;
+	padding: 0;
+	border-bottom: 1px solid #BFBFBF;
+}
+
+.view-vue-events-news .view-content .views-row a {
+	text-decoration: none;
+	padding: 10px 0;
+}
+
+.view-vue-events-news .view-content .views-row a:hover {
+	color: #4D729F;
+}
+
+.section-event .view-content .date-display-single,
+.section-news .view-content .date-display-single {
+	border-bottom: 1px dotted #8EBCF6;
+	font-size: 17px;
+}
+
+.view-vue-events-news .view-content .views-field-title,
+.view-vue-events-news .view-content .views-field-field-workpackage-nid,
+.view-vue-events-news .view-content .views-field-body {
+	padding: 5px 0 0 0;
+}
+
+.view-vue-events-news .view-content .views-field-title a {
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.view-vue-events-news .view-content .views-field-view-node{
+	text-align: right;
+	padding: 0 0 5px 0;
+}
+
+
+/* CAPTCHA
+------------------------------------------------------------------
+*/
+
+.captcha {
+	border:none;
+	padding: 0;
+	margin: 0;
+}
+
+.captcha legend {
+	display:none;
+}
+
+/* FORUMS
+------------------------------------------------------------------
+*/
+
+.page-forum #content-inner,
+.section-calendar #content-inner,
+.section-pacenet-calendar #content-inner {
+padding: 40px 0px 0px 0px;
+
+}
+
+.page-forum #content-header H1,
+.section-calendar #content-header H1,
+.section-pacenet-calendar #content-header H1,
+.section-key-stakeholders #content-header H1,
+.section-key-stakeholders #content-inner,
+.section-adresses-book #content-header H1,
+.section-adresses-book #content-inner {
+
+}
+
+#forum, #forum * {
+	border: none!important;
+	background-color: none!important;
+
+}
+
+.section-forums .image-replace, .node-type-forum .image-replace {
+	display: none!important;
+}
+
+
+
+#forum a {
+	color: #345E91;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+#forum a:hover {
+	text-decoration: underline;
+}
+
+
+#forum .forum-table-forums {
+margin-top:20px;
+}
+
+#forum .forum-secondary-links {
+margin-top:20px;
+}
+
+
+#forum .forum-secondary-links li {
+padding-right:6px;
+margin-right:3px;
+border-right: 1px solid #345E91!important;
+}
+
+
+#forum .forum-secondary-links li.last {
+padding-right:none;
+margin-right:none;
+border-right: none!important;
+}
+
+.section-sitemap #content-inner {
+margin-left:0;
+width: 645px;
+}
+
+.section-sitemap #content-header h1 {
+margin-left:0;
+width: 645px;
+}
+
+#site-map h2.title {
+display: none;
+}
+
+.site-map-box a:first-child {
+font-style: normal;
+font-size: 16px;
+}
+
+
+#site-map {
+margin-left:15px;
+width: 645px;
+}
+
+#site-map .site-map-menu *, #site-map .site-map-menu {
+margin: 0;
+padding: 0;
+list-style: none;
+}
+
+#site-map .site-map-menu ul{
+margin: 10px 0;
+}
+
+#site-map .site-map-menu ul{
+margin: 5px 0;
+}
+
+#site-map .site-map-menu li{
+padding: 10px 0;
+}
+
+#site-map .site-map-menu li li, #site-map .site-map-menu li li li	{
+padding: 5px 0 5px 5px;
+}
+
+#site-map .site-map-menu li li li	{
+padding: 5px 0 5px 10px;
+}
+
+#site-map .site-map-menu li a {
+font-size: 14px;
+font-weight: bold;
+}
+
+#site-map .site-map-menu li li a {
+font-weight: normal;
+}
+
+.rsvp_invitation_view {
+background-image: none;
+}
+
+/* PACENET-CALENDAR
+------------------------------------------------------------------
+*/
+
+.section-pacenet-calendar {
+
+}
+
+.section-pacenet-calendar .calendar-calendar ul.links {
+
+}
+
+
+.section-pacenet-calendar .calendar-calendar .content ul.links li {
+	padding: 5px 10px;
+	background-color: #777;
+	border: 1px solid #777;
+	
+}
+
+.section-pacenet-calendar .calendar-calendar ul.links li a {
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+
+.view-pacenet-calendar .calendar-calendar div.date-nav {
+	background: none;
+	color: #1854A3!important;
+}
+
+ .calendar-calendar .year mini-day-off {
+	
+}
+
+
+ .calendar-calendar .year mini-day-on {
+	
+}
+
+ .calendar-calendar  .year mini-day-on a {
+text-decoration: none;	
+}
+
+
+
+.calendar-calendar .month-view .full td.multi-day div.monthview,
+.calendar-calendar .week-view .full td.multi-day div.weekview,
+.calendar-calendar .day-view .full td.multi-day div.dayview,
+.calendar-calendar .month-view .full td.multi-day .inner .monthview .continues,
+.calendar-calendar .month-view .full td.multi-day .inner .monthview .cutoff,
+.calendar-calendar .week-view .full td.multi-day .inner .weekview .continues,
+.calendar-calendar .week-view .full td.multi-day .inner .weekview .cutoff {
+	background: #4D729F;
+}
+
+/* FOOTER - LEGALS
+------------------------------------------------------------------
+*/
+
+#block-block-8 .content, #block-block-8 .content * {
+	padding: 0;
+	margin: 0;
+}
+
+#block-block-8 {
+	text-align: center;	
+}
+
+#block-block-8 a {
+	color: #646464;
+}
+
+.section-events .views-exposed-form .views-exposed-widget,
+.section-events .views-exposed-form {
+	width: 445px!important;
+	padding: 0!important;
+	margin: 0!important;
+}
+
+
+#edit-submit-vue-events-news {
+	width: 90px;
+	height: 30px;
+	border:none;
+	background: #1854A3;
+	cursor: pointer;
+	color: #FFF200;
+}
+
+#node-141 .pager {
+	margin-top: 10px;
+}
+
+#node-141 .pager li a {
+	color: #0B428A!important;
+	font-size: 13px!important;
+}
+
+table.webform_report tr:hover td {
+	background: #FFC!important;
+}
+
+
+/* ADRESSES BOOK PAGE
+------------------------------------------------------------------
+*/
+
+.view-id-adress_book {
+  clear: both;
+  margin: 0;
+  padding: 0;
+  width: 470px;
+}
+.view-id-adress_book .views-field-privatemsg-link{float:left;}
+.view-id-adress_book .views-row {
+  padding: 0;
+  margin: 0 20px 10px 0;
+  width: 215px;
+  position: relative;
+  float: left;
+  border-top: solid 3px #1854A3;
+  padding-top: 5px;
+}
+
+.view-id-adress_book .views-row .views-field-picture {
+  padding: 0;
+  width: 80px;
+  height: 90px;
+  float: left;
+  overflow: hidden;
+
+}
+
+.view-id-adress_book .views-field-name {
+  font-size: 12px;
+  font-weight: bold;
+  color: #345E91;
+  text-transform: uppercase;
+}
+
+.view-id-adress_book .views-field-name:first-letter {
+  text-transform: uppercase;
+}
+
+.node-type-task .field-type-nodereference {
+  padding: 5px 0;
+}
+/* Files PAGE
+------------------------------------------------------------------
+*/
+.view-Files-category .views-row{
+padding-bottom: 15px;
+padding-top: 15px;
+margin-right:15px;
+border-bottom: 1px solid #BFBFBF;
+}
+.view-files-list .views-row{
+padding-bottom: 15px;
+padding-top: 15px;
+margin-right:15px;
+border-bottom: 1px solid #BFBFBF;
+clear:both;
+}
+.view-files-list .views-row .views-field-title {
+font-size:18px;
+font-weight:bold;
+color:#345e91;
+text-decoration:none;
+}
+.view-Files-category .views-row .views-field-name-1{margin-top:10px;}
+.view-Files-category .views-row .views-field-name a{
+font-size:18px;
+font-weight:bold;
+color:#345e91;
+text-decoration:none;  
+}  
+.view-files-list .views-field-field-logo-fid{width:100px;float:left;}
+.view-files-list .views-field-title{width:340px;float:right;}
+.view-files-list .views-field-body{width:340px;float:right;}
+.view-files-list .views-field-upload-fid{width:340px;clear:both;margin-left:120px;}
+#block-block-11{background-color: #3F83DE;}
+#header-region-droite{float:right;width: 260px;height: 262px;background:url(images/bg_last.jpg)no-repeat;}
+#header-region-droite .feed-icon{margin-top:-11px;}
+#block-views-calendar-calendar_block_1{background-color:#2E70C7;padding:10px;}
+#block-views-calendar-calendar_block_1 .feed-icon{display:none;}
+#block-views-calendar-calendar_block_1{background-color:#2E70C7}
+#block-views-calendar-calendar_block_1{background-color:#2E70C7}
+#block-menu-menu-menu-user-right{padding-top:10px;padding-bottom:10px;}
+#block-views-sliderlogo-block_1, .views-field-field-logo-slider2-fid{background-color:#e8e8e8;}
+#block-views-sliderlogo-block_1 h3{padding-top: 10px;padding-left: 20px;color: #2E70C7;margin:0!important;}
+.jcarousel-prev ,.jcarousel-next{display:none!important;}
+.mini a{font-weight: bold!important;color: #FFF200;}
+.mini a:hover{font-weight: bold;color: #FFF200;}
+#simplenews-block-form-19 label{display:none;}
+#simplenews-block-form-19 .form-radios{display:none;}
+#simplenews-block-form-19 label{display:none;}
+.no-sticky {margin-top:100px;}
+#left_1{width:220px;float:left;border-top:1px solid #bfbfbf;}
+#right_2{width:220px;float:right;border-top:1px solid #bfbfbf;}
+#block-views-view_organise-block_1{background-color:#e8e8e8;padding-top:10px;}
+.view-bloc-news-brussel{padding-left:15px;padding-right:60px;padding-top:6px;}
+.view-bloc-news-brussel > .view-header > p { margin-bottom:5px; }
+.view-view-organise img{padding-left:45px;}
+.view-view-organise .views-field-title{padding-left:10px;font-weight::bold;font-size:14px;}
+#block-views-presentation-block_1 .views-field-title a{color:#fff200;font-size:2.2em;line-height:1.3em;}
+.views-field-view-node a{font-size:12px;background:url(images/arrow-all-x2.png) left 3px no-repeat;color:#555555;padding:0 0 0 12px;font-weight:bold;}
+.views-field-view-node a:hover{font-size:12px;background:url(images/arrow-all-x2.png) left 3px no-repeat;color:#555555;padding:0 0 0 12px;font-weight:bold;}
+#left_1 .views-field-title,#right_2 .views-field-title {background:#ffffff url(images/puce-nav.png) left 3px no-repeat!important;padding-left:30px;margin-bottom:10px;margin-top:10px;}
+#block-search-0 .block-inner{display:none;}
+#block-views-view_organise-block_1 .views-field-title span{font-weight:bold;padding-left:10px;color:#345E91;}
+.view-news-brussels .views-field-title a{font-weight:bold;font-size:14px;text-decoration:none;}
+.view-news-brussels .views-field-view-node .field-content a{margin-left:385px;text-decoration:none;font-size:12px;background:url(images/arrow-all-x2.png) left 3px no-repeat;color:#555555;padding:0 0 0 12px;font-weight:bold;}
+.view-view-registration  .views-field-title,.view-Why-you-should-attend  .views-field-title,.view-Organisation  .views-field-title,.view-keynote-speaker  .views-field-title{	
+	color: #fff200;
+	padding: 20px 0 30px 20px;
+	margin: 0 0 15px 0;
+	background: #1854a3 url(images/bg-title-home.gif) left bottom no-repeat;}
+.view-view-registration  .views-field-title a,.view-Why-you-should-attend  .views-field-title a,.view-Organisation  .views-field-title a,.view-keynote-speaker  .views-field-title a{
+	color: #fff200!important;text-decoration:none;font-size:2.2em;}
+.view-bloc-news-brussel .views-field-title a{color:#ffffff!important;font-size:13px;line-height:20px;}
+.view-bloc-news-brussel .views-field-title a:hover{color:#ffffff!important;font-size:13px;}
+.view-bloc-news-brussel .views-field-changed{color:#8EBCF6;font-size:15px;}
+.view-Download-Policy-brief .views-field-title span,.view-download-publicity-materials .views-field-title span,
+.view-reseach-and-innovation-policies  .views-field-title span,
+.view-Agriculture  .views-field-title span,
+.view-Water .views-field-title span,
+.view-fisheries  .views-field-title span,
+.view-naturals-hazards  .views-field-title span,
+.view-forewords  .views-field-title span,
+.view-presentations  .views-field-title span,
+.view-indicators  .views-field-title span,
+.view-photos-videos  .views-field-title span,
+.view-policy-briefs  .views-field-title span,
+.view-particpants-biographical-information_abstract  .views-field-title span,
+.view-list-of-participant  .views-field-title span
+{font-weight:bold;font-size:14px;text-decoration:none;color:#345e91;}
+.view-Download-Policy-brief .views-row,
+.view-download-publicity-materials .views-row,
+.view-forewords .views-row,
+.view-presentations .views-row,
+.view-indicators .views-row,
+.view-photos-videos .views-row,
+.view-policy-briefs .views-row,
+.view-particpants-biographical-information_abstract .views-row,
+.view-list-of-participant .views-row,
+.view-download-publicity-materials .views-row
+
+{margin-bottom:10px;border-bottom:1px solid #BFBFBF;padding-bottom:10px;}
+.views-field-field-file-fid .filefield-file img{
+	padding-right:10px;
+}
+#webform-component-Email label,#webform-client-form-1 #edit-captcha-response-wrapper label,#webform-component-subscribe_newsletter label,#webform-client-form-1 #edit-submitted-message-wrapper label,#webform-client-form-1 #edit-submitted-about-wrapper label,#webform-client-form-1 #edit-submitted-first-name-wrapper label,#webform-client-form-1 #webform-component-last-name label,#webform-client-form-1 #edit-submitted-mail-wrapper label,#webform-client-form-1 #edit-submitted-firm-wrapper label
+{
+	background:#2E70C7;
+	padding:5px;
+	color:#FFF200;
+	width:290px;
+ 
+}
+#edit-submitted-Email-wrapper input,#edit-submitted-last-name-wrapper input,#edit-submitted-first-name-wrapper input,#edit-submitted-mail-wrapper input,#edit-submitted-firm-wrapper input,#webform-component-about input,#edit-submitted-message-wrapper textarea,#edit-submitted-subscribe-newsletter-newsletter-email-address-wrapper input{
+	border:1px solid #2e70c7;
+	padding:5px;
+	width:420px;
+	outline:none;
+}
+#edit-actions  #edit-submit{
+border:1px solid #2E70C7;
+padding:5px 15px;
+background:#2e70c7;
+color:#fff200;
+cursor:pointer;
+font-weight:normal;
+font-size:20px;
+}
+.view-Download-Policy-brief .filefield-file a{text-decoration:none;padding-left:5px;}
+.views-field-field-upload-2-fid .filefield-file a{text-decoration:none;padding-left:5px;}
+#block-block-8 a{font-size:12px;}
+#partner_site{text-align:left;font-size:16px;font-weight:bold;color:#1854a3;}
+#block-block-3 a{font-size:12px;color:#555555;padding-left:5px;padding-right:5px;}
+#block-block-3 p{text-align:left;margin-top:20px;margin-left:-5px;}
+#edit-mail-wrapper .error{border:2px solid red;width:124px;}
+.view-view-logistic .views-field-title,.view-program .views-field-title {
+	color: #fff200;
+	padding: 20px 0 30px 20px;
+	margin: 0 0 15px 0;
+	background: #1854a3 url(images/bg-title-home.gif) left bottom no-repeat;}
+.view-view-logistic .views-field-title a,.view-program .views-field-title a{
+color: #fff200!important;text-decoration:none;font-size:2.2em;
+}
+.views-field-field-logo-organise1-fid{margin-top:10px;}
+.views-field-field-logo-organise3-fid{margin-bottom:10px;}
+#block-block-3 #footer_link a img{}
+
+strong, b {font-weight:bold;}
+.view-presentation .views-field-view-node-1{
+	margin-bottom:5px;
+}
+.photos_galery a{
+	width:105px;
+	height:70px;
+	float:left;
+	background-color:#3f83de;
+	color:#fff200;
+	text-align:center;
+	padding-top:30px;
+	padding-left:20px;
+	padding-right:20px;
+	margin:1px;
+	}
+	.photos_galery a:hover{
+	width:105px;
+	height:70px;
+	float:left;
+	background-color:#0b428a;
+	color:#ffffff;
+	text-align:center;
+	padding-top:30px;
+	padding-left:20px;
+	padding-right:20px;
+	margin:1px;
+	}
+	
+	.field-item img{
+		float:left;
+		margin:1px;}
+	.field-item img.filefield-icon.field-icon-application-pdf{float:none}
